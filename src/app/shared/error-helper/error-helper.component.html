@@ -1,0 +1,22 @@
+<small class="text-danger">
+    <div *ngFor="let error of control?.errors | keyvalue">
+
+        <div [ngSwitch]="error.key">
+
+            <div *ngSwitchCase="'required'">Este campo es requerido</div>
+
+            <div *ngSwitchCase="'minlength'">Debe tener al menos {{error.value.requiredLength}}</div>
+
+            <div *ngSwitchCase="'email'">Debe ser un email válido</div>
+
+            <!--<div *ngSwitchCase=""></div>-->
+
+            <div *ngSwitchDefault>Error desconocido</div>
+
+        </div>
+    </div>
+
+</small>
+
+<!--<small *ngIf="firstNameControl.errors?.['required']" class="text-danger">Este campo es requerido! 😡</small>
+<small *ngIf="firstNameControl.errors?.['minlength']" class="text-danger">Debe tener al menos 3 caracterres! ☣</small>-->

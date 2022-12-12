@@ -1,0 +1,68 @@
+<!-- https://cssgradient.io/ -->
+<main>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Formulario de registro</h5>
+                <div class="row">
+                    <div class="col-8">
+                        <form [formGroup]="registerForm" class="row g-3" (ngSubmit)="onSubmit()">
+
+                            <div class="col-6">
+                                <label class="form-label" for="firstName">Nombre:</label>
+                                <input [formControl]="firstNameControl" class="form-control" type="text">
+                                <app-error-helper [control]="firstNameControl"></app-error-helper>
+                                <!--<br>
+                                {{firstNameControl.errors | json}}-->
+                            </div>
+
+                            <div class="col-6">
+                                <label class="form-label" for="lastName">Apellido:</label>
+                                <input [formControl]="lastNameControl" class="form-control" type="text">
+                                <app-error-helper [control]="lastNameControl"></app-error-helper>
+                                <!--<small class="text-danger">Este campo es requerido! 😡</small>-->
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label" for="email">eMail:</label>
+                                <input [formControl]="emailControl" class="form-control" type="email">
+                                <app-error-helper [control]="emailControl"></app-error-helper>
+                            </div>
+
+                            <div class="col-6">
+                                <label class="form-label" for="password">Password:</label>
+                                <input [formControl]="passwordControl" class="form-control" type="password">
+                            </div>
+
+                            <div class="col-6">
+                                <label class="form-label" for="repeatPassword">Confirme password:</label>
+                                <input [formControl]="repeatPasswordControl" class="form-control" type="password">
+                            </div>
+
+
+                            <!--<div class="col-8">
+                                <label class="form-label" for="streetName">Calle</label>
+                                <input [formControl]="" class="form-control" type="text">
+                            </div>
+
+                            <div class="col-4">
+                                <label class="form-label" for="">streetNumber</label>
+                                <input [formControl]="" class="form-control" type="number">
+                            </div>-->
+
+                            <div class="col-12 d-flex justify-content-end mt-3">
+                                <button [disabled]="registerForm.invalid"  class="btn btn-primary" type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <h3>ES VALIDO? {{ registerForm.valid }}</h3>
+                        <pre>
+                            {{registerForm.value | json}}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
